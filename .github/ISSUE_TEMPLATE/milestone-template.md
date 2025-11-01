@@ -1,7 +1,7 @@
 ---
 name: Milestone template
 about: A high-level development goal
-title: "[Milestone] "
+title: "[Milestone] <Milestone name>"
 labels: milestone
 assignees: ''
 
@@ -21,7 +21,7 @@ Example:
 
 _List the major features, systems, or modules covered by this milestone._
 
-- [ ] Character ability system basics
-- [ ] Enemy AI prototype
-- [ ] Scene transition & respawn
-- [ ] Map generation pipeline setup
+[ ] Character ability system basics
+[ ] Enemy AI prototype
+[ ] Scene transition & respawn
+[ ] Map generation pipeline setup
