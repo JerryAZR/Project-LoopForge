@@ -28,11 +28,11 @@ Example:
 Outline major development steps or stages.
 (Use checkboxes so progress is visible.)
 
-[ ] Design behavior and parameters.
-[ ] Implement CorgiEngine integration.
-[ ] Add VFX / SFX via `MMFeedbacks`.
-[ ] Test interaction with dodge and damage.
-[ ] Refactor shared code if needed.
+- [ ] Design behavior and parameters.
+- [ ] Implement CorgiEngine integration.
+- [ ] Add VFX / SFX via `MMFeedbacks`.
+- [ ] Test interaction with dodge and damage.
+- [ ] Refactor shared code if needed.
 
 ---
 
@@ -41,8 +41,8 @@ Outline major development steps or stages.
 List any issues that must be completed before starting this one.
 Example: depends on #8 (Player State Handling).
 
-[ ] #<issue_number> – Dependency 1
-[ ] #<issue_number> – Dependency 2
+- [ ] #<issue_number> – Dependency 1
+- [ ] #<issue_number> – Dependency 2
 
 ---
 
@@ -60,9 +60,9 @@ Example:
 Define how to confirm that this feature works correctly.
 Example:
 
-[ ] Player can parry melee and ranged attacks.
-[ ] Successful parry plays correct animation and feedback.
-[ ] Parry cannot trigger during dodge or hit stun.
+- [ ] Player can parry melee and ranged attacks.
+- [ ] Successful parry plays correct animation and feedback.
+- [ ] Parry cannot trigger during dodge or hit stun.
 
 ---
 
@@ -70,6 +70,6 @@ Example:
 
 When all items below are checked, this feature is considered complete.
 
-[ ] Implementation done and reviewed.
-[ ] All dependent systems verified to still work.
-[ ] No known blocking bugs remain.
+- [ ] Implementation done and reviewed.
+- [ ] All dependent systems verified to still work.
+- [ ] No known blocking bugs remain.

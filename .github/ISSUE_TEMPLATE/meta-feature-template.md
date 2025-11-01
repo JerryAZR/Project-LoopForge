@@ -19,9 +19,9 @@ Example:
 List individual issues that belong to this meta-feature.
 Mark them as completed when the linked issue is closed.
 
-[ ] #<issue_number> – Sub-feature 1
-[ ] #<issue_number> – Sub-feature 2
-[ ] #<issue_number> – Sub-feature 3
+- [ ] #<issue_number> – Sub-feature 1
+- [ ] #<issue_number> – Sub-feature 2
+- [ ] #<issue_number> – Sub-feature 3
 
 (Add or remove as needed.)
 
@@ -32,8 +32,8 @@ Mark them as completed when the linked issue is closed.
 List other meta-features or milestones that must be completed before this one.
 Example: depends on `#12 [Feature] Inventory System`.
 
-[ ] #<issue_number> – Dependency 1
-[ ] #<issue_number> – Dependency 2
+- [ ] #<issue_number> – Dependency 1
+- [ ] #<issue_number> – Dependency 2
 
 ---
 

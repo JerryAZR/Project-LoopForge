@@ -21,7 +21,7 @@ Example:
 
 _List the major features, systems, or modules covered by this milestone._
 
-[ ] Character ability system basics
-[ ] Enemy AI prototype
-[ ] Scene transition & respawn
-[ ] Map generation pipeline setup
+- [ ] Character ability system basics
+- [ ] Enemy AI prototype
+- [ ] Scene transition & respawn
+- [ ] Map generation pipeline setup
