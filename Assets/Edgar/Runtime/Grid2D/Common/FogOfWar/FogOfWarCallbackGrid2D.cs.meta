@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2615a3ed5e09310459ddbe32f9d05ce4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212735
+  packageName: Edgar Pro - Procedural Level Generator
+  packageVersion: 2.0.10
+  assetPath: Assets/Edgar/Runtime/Grid2D/Common/FogOfWar/FogOfWarCallbackGrid2D.cs
+  uploadId: 753907
