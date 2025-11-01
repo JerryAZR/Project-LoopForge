@@ -29,7 +29,7 @@ Together, *LoopForge* stands for *forging loops of gameplay*, both mechanically 
 
 ## Related Documentation
 
-See the [Development Guidelines](Docs\DevGuidelines.md) for
+See the [Development Guidelines](Docs/DevGuidelines.md) for
 implementation-related notes.
 
 Detailed design discussions, dev notes, and architecture documents are hosted separately:
