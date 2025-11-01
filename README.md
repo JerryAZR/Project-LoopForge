@@ -29,9 +29,12 @@ Together, *LoopForge* stands for *forging loops of gameplay*, both mechanically 
 
 ## Related Documentation
 
+See the [Development Guidelines](Docs\DevGuidelines.md) for
+implementation-related notes.
+
 Detailed design discussions, dev notes, and architecture documents are hosted separately:
 
-- **Dev Docs Repository:** [RogueVaniaDocs (GitHub)](https://github.com/JerryAZR/RogueVaniaDocs)
+- **Game Design Docs Repository:** [RogueVaniaDocs (GitHub)](https://github.com/JerryAZR/RogueVaniaDocs)
 - **Online Docs Page:** [RogueVaniaDocs Website](https://jerryazr.github.io/RogueVaniaDocs/)
 
 ---
