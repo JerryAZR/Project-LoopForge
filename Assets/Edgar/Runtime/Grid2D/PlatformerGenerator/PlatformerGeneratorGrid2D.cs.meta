@@ -1,14 +1,5 @@
 fileFormatVersion: 2
 guid: 48817bbd83f26fa428a598cd7c06e76b
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
   productId: 212735
@@ -16,3 +7,12 @@ AssetOrigin:
   packageVersion: 2.0.10
   assetPath: Assets/Edgar/Runtime/Grid2D/PlatformerGenerator/PlatformerGeneratorGrid2D.cs
   uploadId: 753907
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: -10
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

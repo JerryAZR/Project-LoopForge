@@ -245,10 +245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e514a2b7cbba3c94fadd9e100df51189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Top: 1
+  Top: 0
   Bottom: 2
-  Left: 1
-  Right: 1
+  Left: 0
+  Right: 0
   ResetForcesOnConstrain: 1
 --- !u!114 &11485350
 MonoBehaviour:
