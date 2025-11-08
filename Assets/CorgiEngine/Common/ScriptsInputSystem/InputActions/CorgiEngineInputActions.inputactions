@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "CorgiEngineInputActions",
     "maps": [
         {
@@ -135,7 +136,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "ae461515-11b0-4cc9-b221-92ed2df4118e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -162,7 +163,7 @@
                     "name": "SwitchWeapon",
                     "type": "Button",
                     "id": "6e3febaf-dba5-4b43-b4f8-3b720e7ad1be",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -189,7 +190,16 @@
                     "name": "Roll",
                     "type": "Button",
                     "id": "f1006ee4-eeee-4d84-b426-0c1b853bd7b5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Parry",
+                    "type": "Button",
+                    "id": "bc195847-f38c-4780-8ecc-4d7642a060da",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -666,6 +676,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c7450d5-085d-4dc0-bb73-25d837b972f6",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

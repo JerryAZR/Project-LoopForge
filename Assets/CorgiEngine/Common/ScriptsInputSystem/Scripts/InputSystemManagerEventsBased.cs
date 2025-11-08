@@ -39,6 +39,7 @@ namespace MoreMountains.CorgiEngine
         public void OnGrab(InputValue value) { BindButton(value, GrabButton); }
         public void OnThrow(InputValue value) { BindButton(value, ThrowButton); }
         public void OnPush(InputValue value) { BindButton(value, PushButton); }
+        public void OnParry(InputValue value) { BindButton(value, ParryButton); }
 
         protected virtual void BindButton(InputValue inputValue, MMInput.IMButton imButton)
         {

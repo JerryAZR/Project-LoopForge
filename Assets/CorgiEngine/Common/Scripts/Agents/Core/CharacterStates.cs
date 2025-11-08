@@ -19,7 +19,8 @@ namespace MoreMountains.CorgiEngine
 			Frozen,
 			Paused,
 			Dead,
-			Stunned
+			Stunned,
+			Parry,
 		}
 
 		/// The possible Movement States the character can be in. These usually correspond to their own class, 

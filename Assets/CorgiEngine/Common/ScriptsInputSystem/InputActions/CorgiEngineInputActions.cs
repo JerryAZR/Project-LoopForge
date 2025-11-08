@@ -224,7 +224,7 @@ namespace MoreMountains.CorgiEngine
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""ae461515-11b0-4cc9-b221-92ed2df4118e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -251,7 +251,7 @@ namespace MoreMountains.CorgiEngine
                     ""name"": ""SwitchWeapon"",
                     ""type"": ""Button"",
                     ""id"": ""6e3febaf-dba5-4b43-b4f8-3b720e7ad1be"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -278,7 +278,16 @@ namespace MoreMountains.CorgiEngine
                     ""name"": ""Roll"",
                     ""type"": ""Button"",
                     ""id"": ""f1006ee4-eeee-4d84-b426-0c1b853bd7b5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Parry"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc195847-f38c-4780-8ecc-4d7642a060da"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -757,6 +766,17 @@ namespace MoreMountains.CorgiEngine
                     ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c7450d5-085d-4dc0-bb73-25d837b972f6"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Parry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -809,6 +829,7 @@ namespace MoreMountains.CorgiEngine
             m_PlayerControls_SwitchCharacter = m_PlayerControls.FindAction("SwitchCharacter", throwIfNotFound: true);
             m_PlayerControls_TimeControl = m_PlayerControls.FindAction("TimeControl", throwIfNotFound: true);
             m_PlayerControls_Roll = m_PlayerControls.FindAction("Roll", throwIfNotFound: true);
+            m_PlayerControls_Parry = m_PlayerControls.FindAction("Parry", throwIfNotFound: true);
         }
 
         ~@CorgiEngineInputActions()
@@ -910,6 +931,7 @@ namespace MoreMountains.CorgiEngine
         private readonly InputAction m_PlayerControls_SwitchCharacter;
         private readonly InputAction m_PlayerControls_TimeControl;
         private readonly InputAction m_PlayerControls_Roll;
+        private readonly InputAction m_PlayerControls_Parry;
         /// <summary>
         /// Provides access to input actions defined in input action map "PlayerControls".
         /// </summary>
@@ -1006,6 +1028,10 @@ namespace MoreMountains.CorgiEngine
             /// </summary>
             public InputAction @Roll => m_Wrapper.m_PlayerControls_Roll;
             /// <summary>
+            /// Provides access to the underlying input action "PlayerControls/Parry".
+            /// </summary>
+            public InputAction @Parry => m_Wrapper.m_PlayerControls_Parry;
+            /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
             public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
@@ -1094,6 +1120,9 @@ namespace MoreMountains.CorgiEngine
                 @Roll.started += instance.OnRoll;
                 @Roll.performed += instance.OnRoll;
                 @Roll.canceled += instance.OnRoll;
+                @Parry.started += instance.OnParry;
+                @Parry.performed += instance.OnParry;
+                @Parry.canceled += instance.OnParry;
             }
 
             /// <summary>
@@ -1168,6 +1197,9 @@ namespace MoreMountains.CorgiEngine
                 @Roll.started -= instance.OnRoll;
                 @Roll.performed -= instance.OnRoll;
                 @Roll.canceled -= instance.OnRoll;
+                @Parry.started -= instance.OnParry;
+                @Parry.performed -= instance.OnParry;
+                @Parry.canceled -= instance.OnParry;
             }
 
             /// <summary>
@@ -1381,6 +1413,13 @@ namespace MoreMountains.CorgiEngine
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnRoll(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Parry" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnParry(InputAction.CallbackContext context);
         }
     }
 }

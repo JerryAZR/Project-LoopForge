@@ -141,7 +141,10 @@ namespace MoreMountains.CorgiEngine
 		/// the primary movement value (used to move the character around)
 		public virtual Vector2 PrimaryMovement {get { return _primaryMovement; } }
 		/// the secondary movement (usually the right stick on a gamepad), used to aim
-		public virtual Vector2 SecondaryMovement {get { return _secondaryMovement; } }
+		public virtual Vector2 SecondaryMovement { get { return _secondaryMovement; } }
+        /// the parry button
+		public MMInput.IMButton ParryButton { get; protected set; }
+
 
 		protected List<MMInput.IMButton> ButtonList;
 		protected Vector2 _primaryMovement = Vector2.zero;
@@ -237,6 +240,7 @@ namespace MoreMountains.CorgiEngine
 			ButtonList.Add(TimeControlButton = new MMInput.IMButton(PlayerID, "TimeControl", TimeControlButtonDown, TimeControlButtonPressed, TimeControlButtonUp));
 			ButtonList.Add(GrabButton = new MMInput.IMButton(PlayerID, "Grab", GrabButtonDown, GrabButtonPressed, GrabButtonUp));
 			ButtonList.Add(ThrowButton = new MMInput.IMButton(PlayerID, "Throw", ThrowButtonDown, ThrowButtonPressed, ThrowButtonUp));
+			ButtonList.Add(ParryButton = new MMInput.IMButton(PlayerID, "Parry", ParryButtonDown, ParryButtonPressed, ParryButtonUp));
 		}
 
 		/// <summary>
@@ -585,6 +589,11 @@ namespace MoreMountains.CorgiEngine
 		public virtual void ThrowButtonDown() { ThrowButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void ThrowButtonPressed() { ThrowButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void ThrowButtonUp() { ThrowButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
+		
+		public virtual void ParryButtonDown() { ParryButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+		public virtual void ParryButtonPressed() { ParryButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+		public virtual void ParryButtonUp() { ParryButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
 	}
 }

@@ -236,5 +236,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Drafts_A/SceneTransitionDemo_Room2.unity
     guid: fd56a5b9c5dca714498ae751f76586bf
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 9bc7476ee91ad6447bb6270dacb22357,
+      type: 3}
   m_UseUCBPForAssetBundles: 0
