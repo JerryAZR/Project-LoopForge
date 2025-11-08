@@ -453,11 +453,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940281967110856160, guid: bf54970fb197869449ccf6a1a28a790c,
+        type: 3}
+      propertyPath: ButtonPromptPrefab
+      value: 
+      objectReference: {fileID: 114235008137252218, guid: bb1fc0f1f16f31248b9b4d80aa795609,
+        type: 3}
     - target: {fileID: 3407909945321907062, guid: bf54970fb197869449ccf6a1a28a790c,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.31
       objectReference: {fileID: 0}
+    - target: {fileID: 3748030345754483992, guid: bf54970fb197869449ccf6a1a28a790c,
+        type: 3}
+      propertyPath: ButtonPromptPrefab
+      value: 
+      objectReference: {fileID: 114235008137252218, guid: bb1fc0f1f16f31248b9b4d80aa795609,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1194,11 +1206,12 @@ MonoBehaviour:
   InputKey: 32
   AnimationTriggerParameterName: 
   UseVisualPrompt: 1
-  ButtonPromptPrefab: {fileID: 0}
+  ButtonPromptPrefab: {fileID: 114235008137252218, guid: bb1fc0f1f16f31248b9b4d80aa795609,
+    type: 3}
   ButtonPromptText: A
   ButtonPromptColor: {r: 0.4862745, g: 0.9882353, b: 0, a: 1}
   ButtonPromptTextColor: {r: 1, g: 1, b: 1, a: 1}
-  AlwaysShowPrompt: 1
+  AlwaysShowPrompt: 0
   ShowPromptWhenColliding: 1
   HidePromptAfterUse: 0
   PromptRelativePosition: {x: 0, y: 0, z: 0}
@@ -1685,6 +1698,12 @@ PrefabInstance:
       propertyPath: LevelName
       value: SceneTransitionDemo_Room1
       objectReference: {fileID: 0}
+    - target: {fileID: 1840116945453794503, guid: 019db74cbae2d484d8ca23d0c6b1f02e,
+        type: 3}
+      propertyPath: ButtonPromptPrefab
+      value: 
+      objectReference: {fileID: 114235008137252218, guid: bb1fc0f1f16f31248b9b4d80aa795609,
+        type: 3}
     - target: {fileID: 5407236537505987149, guid: 019db74cbae2d484d8ca23d0c6b1f02e,
         type: 3}
       propertyPath: m_Name
