@@ -91,7 +91,7 @@ namespace MoreMountains.CorgiEngine
 		/// the minimum horizontal and vertical value you need to reach to trigger movement on an analog controller (joystick for example)
 		[Tooltip("the minimum horizontal and vertical value you need to reach to trigger movement on an analog controller (joystick for example)")]
 		public Vector2 Threshold = new Vector2(0.1f, 0.4f);
-        
+
 		/// the jump button, used for jumps
 		public MMInput.IMButton JumpButton { get; protected set; }
 		/// the swim button, used to swim
@@ -144,6 +144,8 @@ namespace MoreMountains.CorgiEngine
 		public virtual Vector2 SecondaryMovement { get { return _secondaryMovement; } }
         /// the parry button
 		public MMInput.IMButton ParryButton { get; protected set; }
+        /// Toggle map view
+		public MMInput.IMButton MapButton { get; protected set; }
 
 
 		protected List<MMInput.IMButton> ButtonList;
@@ -155,7 +157,7 @@ namespace MoreMountains.CorgiEngine
 		protected string _axisSecondaryVertical;
 		protected string _axisShoot;
 		protected string _axisShootSecondary;
-		
+
 		/// <summary>
 		/// Statics initialization to support enter play modes
 		/// </summary>
@@ -202,15 +204,15 @@ namespace MoreMountains.CorgiEngine
 			if (ForcedMode==InputForcedMode.Desktop)
 			{
 				ControlsModeEvent.Trigger(false, MovementControls.Joystick);
-				IsMobile = false;					
+				IsMobile = false;
 			}
 			if (HideMobileControlsInEditor)
 			{
 				#if UNITY_EDITOR
 				ControlsModeEvent.Trigger(false, MovementControls.Joystick);
-				IsMobile = false;	
+				IsMobile = false;
 				#endif
-			}			
+			}
 		}
 
 		/// <summary>
@@ -223,7 +225,7 @@ namespace MoreMountains.CorgiEngine
 			ButtonList.Add(SwimButton = new MMInput.IMButton(PlayerID, "Swim", SwimButtonDown, SwimButtonPressed, SwimButtonUp));
 			ButtonList.Add(GlideButton = new MMInput.IMButton(PlayerID, "Glide", GlideButtonDown, GlideButtonPressed, GlideButtonUp));
 			ButtonList.Add(InteractButton = new MMInput.IMButton (PlayerID, "Interact", InteractButtonDown, InteractButtonPressed, InteractButtonUp));
-			ButtonList.Add(JetpackButton = new MMInput.IMButton (PlayerID, "Jetpack", JetpackButtonDown, JetpackButtonPressed, JetpackButtonUp)); 
+			ButtonList.Add(JetpackButton = new MMInput.IMButton (PlayerID, "Jetpack", JetpackButtonDown, JetpackButtonPressed, JetpackButtonUp));
 			ButtonList.Add(RunButton  = new MMInput.IMButton (PlayerID, "Run", RunButtonDown, RunButtonPressed, RunButtonUp));
 			ButtonList.Add(GripButton  = new MMInput.IMButton (PlayerID, "Grip", GripButtonDown, GripButtonPressed, GripButtonUp));
 			ButtonList.Add(DashButton = new MMInput.IMButton(PlayerID, "Dash", DashButtonDown, DashButtonPressed, DashButtonUp));
@@ -241,6 +243,7 @@ namespace MoreMountains.CorgiEngine
 			ButtonList.Add(GrabButton = new MMInput.IMButton(PlayerID, "Grab", GrabButtonDown, GrabButtonPressed, GrabButtonUp));
 			ButtonList.Add(ThrowButton = new MMInput.IMButton(PlayerID, "Throw", ThrowButtonDown, ThrowButtonPressed, ThrowButtonUp));
 			ButtonList.Add(ParryButton = new MMInput.IMButton(PlayerID, "Parry", ParryButtonDown, ParryButtonPressed, ParryButtonUp));
+			ButtonList.Add(MapButton = new MMInput.IMButton(PlayerID, "Map", MapButtonDown, MapButtonPressed, MapButtonUp));
 		}
 
 		/// <summary>
@@ -268,14 +271,14 @@ namespace MoreMountains.CorgiEngine
 		/// At update, we check the various commands and update our values and states accordingly.
 		/// </summary>
 		protected virtual void Update()
-		{		
+		{
 			if (!IsMobile && InputDetectionActive)
-			{	
-				SetMovement();	
+			{
+				SetMovement();
 				SetSecondaryMovement ();
 				SetShootAxis();
 				GetInputButtons ();
-			}									
+			}
 		}
 
 		/// <summary>
@@ -319,7 +322,7 @@ namespace MoreMountains.CorgiEngine
 						button.State.ChangeState(MMInput.ButtonStates.ButtonPressed);
 					}
 
-				}	
+				}
 				if (button.State.CurrentState == MMInput.ButtonStates.ButtonUp)
 				{
 					if (DelayedButtonPresses)
@@ -330,7 +333,7 @@ namespace MoreMountains.CorgiEngine
 					{
 						button.State.ChangeState(MMInput.ButtonStates.Off);
 					}
-				}	
+				}
 			}
 		}
 
@@ -366,12 +369,12 @@ namespace MoreMountains.CorgiEngine
 				if (SmoothMovement)
 				{
 					_primaryMovement.x = Input.GetAxis(_axisHorizontal);
-					_primaryMovement.y = Input.GetAxis(_axisVertical);		
+					_primaryMovement.y = Input.GetAxis(_axisVertical);
 				}
 				else
 				{
 					_primaryMovement.x = Input.GetAxisRaw(_axisHorizontal);
-					_primaryMovement.y = Input.GetAxisRaw(_axisVertical);		
+					_primaryMovement.y = Input.GetAxisRaw(_axisVertical);
 				}
 			}
 		}
@@ -386,12 +389,12 @@ namespace MoreMountains.CorgiEngine
 				if (SmoothMovement)
 				{
 					_secondaryMovement.x = Input.GetAxis(_axisSecondaryHorizontal);
-					_secondaryMovement.y = Input.GetAxis(_axisSecondaryVertical);		
+					_secondaryMovement.y = Input.GetAxis(_axisSecondaryVertical);
 				}
 				else
 				{
 					_secondaryMovement.x = Input.GetAxisRaw(_axisSecondaryHorizontal);
-					_secondaryMovement.y = Input.GetAxisRaw(_axisSecondaryVertical);		
+					_secondaryMovement.y = Input.GetAxisRaw(_axisSecondaryVertical);
 				}
 			}
 		}
@@ -417,7 +420,7 @@ namespace MoreMountains.CorgiEngine
 			if (IsMobile && InputDetectionActive)
 			{
 				_primaryMovement.x = movement.x;
-				_primaryMovement.y = movement.y;	
+				_primaryMovement.y = movement.y;
 			}
 		}
 
@@ -430,7 +433,7 @@ namespace MoreMountains.CorgiEngine
 			if (IsMobile && InputDetectionActive)
 			{
 				_secondaryMovement.x = movement.x;
-				_secondaryMovement.y = movement.y;	
+				_secondaryMovement.y = movement.y;
 			}
 		}
 
@@ -545,7 +548,7 @@ namespace MoreMountains.CorgiEngine
 		public virtual void ReloadButtonDown()              { ReloadButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void ReloadButtonPressed()           { ReloadButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void ReloadButtonUp()                { ReloadButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
-        
+
 		public virtual void PushButtonDown()                { PushButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void PushButtonPressed()             { PushButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void PushButtonUp()                  { PushButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
@@ -590,10 +593,13 @@ namespace MoreMountains.CorgiEngine
 		public virtual void ThrowButtonPressed() { ThrowButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void ThrowButtonUp() { ThrowButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
-		
 		public virtual void ParryButtonDown() { ParryButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void ParryButtonPressed() { ParryButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void ParryButtonUp() { ParryButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
+		public virtual void MapButtonDown() { MapButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+		public virtual void MapButtonPressed() { MapButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+		public virtual void MapButtonUp() { MapButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
 	}
 }

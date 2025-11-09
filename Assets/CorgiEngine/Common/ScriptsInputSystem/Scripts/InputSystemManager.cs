@@ -9,7 +9,7 @@ namespace MoreMountains.CorgiEngine
 {
     /// <summary>
     /// This is a replacement InputManager if you prefer using Unity's InputSystem over the legacy one.
-    /// Note that it's not the default solution in the engine at the moment, because older versions of Unity don't support it, 
+    /// Note that it's not the default solution in the engine at the moment, because older versions of Unity don't support it,
     /// and most people still prefer not using it
     /// You can see an example of how to set it up in the MinimalLevel_InputSystem demo scene
     /// </summary>
@@ -20,13 +20,13 @@ namespace MoreMountains.CorgiEngine
 
         protected bool _inputActionsEnabled = true;
         protected bool _initialized = false;
-        
+
         protected override void Start()
         {
             if (!_initialized)
             {
                 Initialization();
-            }            
+            }
         }
 
         /// <summary>
@@ -63,6 +63,10 @@ namespace MoreMountains.CorgiEngine
             InputActions.PlayerControls.Grab.performed += context => { BindButton(context, GrabButton); };
             InputActions.PlayerControls.Throw.performed += context => { BindButton(context, ThrowButton); };
             InputActions.PlayerControls.Push.performed += context => { BindButton(context, PushButton); };
+
+            // New additions
+            InputActions.PlayerControls.Parry.performed += context => { BindButton(context, ParryButton); };
+            InputActions.PlayerControls.Map.performed += context => { BindButton(context, MapButton); };
 
             _initialized = true;
         }

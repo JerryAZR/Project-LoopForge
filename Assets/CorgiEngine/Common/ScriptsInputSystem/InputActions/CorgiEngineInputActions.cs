@@ -291,6 +291,15 @@ namespace MoreMountains.CorgiEngine
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4b5e21d-0c05-4582-acb8-9a217a113ee7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -777,6 +786,17 @@ namespace MoreMountains.CorgiEngine
                     ""action"": ""Parry"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44bc2be6-9c1f-409b-a7fe-c876493eddbf"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -830,6 +850,7 @@ namespace MoreMountains.CorgiEngine
             m_PlayerControls_TimeControl = m_PlayerControls.FindAction("TimeControl", throwIfNotFound: true);
             m_PlayerControls_Roll = m_PlayerControls.FindAction("Roll", throwIfNotFound: true);
             m_PlayerControls_Parry = m_PlayerControls.FindAction("Parry", throwIfNotFound: true);
+            m_PlayerControls_Map = m_PlayerControls.FindAction("Map", throwIfNotFound: true);
         }
 
         ~@CorgiEngineInputActions()
@@ -932,6 +953,7 @@ namespace MoreMountains.CorgiEngine
         private readonly InputAction m_PlayerControls_TimeControl;
         private readonly InputAction m_PlayerControls_Roll;
         private readonly InputAction m_PlayerControls_Parry;
+        private readonly InputAction m_PlayerControls_Map;
         /// <summary>
         /// Provides access to input actions defined in input action map "PlayerControls".
         /// </summary>
@@ -1032,6 +1054,10 @@ namespace MoreMountains.CorgiEngine
             /// </summary>
             public InputAction @Parry => m_Wrapper.m_PlayerControls_Parry;
             /// <summary>
+            /// Provides access to the underlying input action "PlayerControls/Map".
+            /// </summary>
+            public InputAction @Map => m_Wrapper.m_PlayerControls_Map;
+            /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
             public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
@@ -1123,6 +1149,9 @@ namespace MoreMountains.CorgiEngine
                 @Parry.started += instance.OnParry;
                 @Parry.performed += instance.OnParry;
                 @Parry.canceled += instance.OnParry;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
             }
 
             /// <summary>
@@ -1200,6 +1229,9 @@ namespace MoreMountains.CorgiEngine
                 @Parry.started -= instance.OnParry;
                 @Parry.performed -= instance.OnParry;
                 @Parry.canceled -= instance.OnParry;
+                @Map.started -= instance.OnMap;
+                @Map.performed -= instance.OnMap;
+                @Map.canceled -= instance.OnMap;
             }
 
             /// <summary>
@@ -1420,6 +1452,13 @@ namespace MoreMountains.CorgiEngine
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnParry(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Map" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnMap(InputAction.CallbackContext context);
         }
     }
 }
