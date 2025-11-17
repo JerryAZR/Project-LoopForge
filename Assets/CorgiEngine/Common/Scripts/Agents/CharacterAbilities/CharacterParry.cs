@@ -19,7 +19,8 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("Cooldown time after a parry (seconds)")]
         public float parryCooldown = 3f;
         [Tooltip("Optional: how much damage is reduced during parry (1 = full block)")]
-        public float parryDamageReduction = 1f;
+        // [Range(0, 1)]
+        // public float parryDamageReduction = 1f;
 
         protected bool _isParrying = false;
         protected bool _isOnCooldown = false;
@@ -99,6 +100,9 @@ namespace MoreMountains.CorgiEngine
             // wait a frame to ensure the animation has started
             yield return null;
 
+            // set character invulnerable to damage
+            _health.Invulnerable = true;
+
             // adjust animation speed to fit the parry window
             AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
             float clipLength = stateInfo.length;
@@ -127,6 +131,7 @@ namespace MoreMountains.CorgiEngine
 
             _isParrying = false;
             _condition.ChangeState(CharacterStates.CharacterConditions.Normal);
+            _health.Invulnerable = false;
 
             MMDebug.DebugLogTime("Parry ended");
         }
@@ -152,13 +157,13 @@ namespace MoreMountains.CorgiEngine
         /// Returns the damage multiplier based on whether the character is currently parrying or not.
         /// </summary>
         /// <returns></returns>
-        public float GetParryDamageMultiplier()
-        {
-            if (_isParrying)
-            {
-                MMDebug.DebugLogTime("Parry successful! Damage reduced.");
-            }
-            return _isParrying ? (1f - parryDamageReduction) : 1f;
-        }
+        // public float GetParryDamageMultiplier()
+        // {
+        //     if (_isParrying)
+        //     {
+        //         MMDebug.DebugLogTime("Parry successful! Damage reduced.");
+        //     }
+        //     return _isParrying ? (1f - parryDamageReduction) : 1f;
+        // }
     }
 }

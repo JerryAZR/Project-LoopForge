@@ -341,20 +341,20 @@ namespace MoreMountains.CorgiEngine
 				// if what we're colliding with is a CorgiController, we apply a knockback force
 				_colliderCorgiController = health.AssociatedController;
 
-				float parryMultiplier = 1f;
+				// float parryMultiplier = 1f;
 
-				if (_colliderCorgiController != null)
-				{
-					// if the thing we're colliding with is parrying, we apply the parry multiplier
-					var parryAbility = _colliderCorgiController.gameObject.MMFGetComponentNoAlloc<CharacterParry>();
-					if (parryAbility != null)
-					{
-						parryMultiplier = parryAbility.GetParryDamageMultiplier();
-					}
-				}
+				// if (_colliderCorgiController != null)
+				// {
+				// 	// if the thing we're colliding with is parrying, we apply the parry multiplier
+				// 	var parryAbility = _colliderCorgiController.gameObject.MMFGetComponentNoAlloc<CharacterParry>();
+				// 	if (parryAbility != null)
+				// 	{
+				// 		parryMultiplier = parryAbility.GetParryDamageMultiplier();
+				// 	}
+				// }
 
 				float randomDamage = UnityEngine.Random.Range(MinDamageCaused, Mathf.Max(MaxDamageCaused, MinDamageCaused));
-				randomDamage *= parryMultiplier;
+				//randomDamage *= parryMultiplier;
 				
 				ApplyDamageCausedKnockback(randomDamage, TypedDamages);
 				
